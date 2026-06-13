@@ -95,6 +95,25 @@ function Car({ x, y, s = 1, color = '#46568c' }: { x: number; y: number; s?: num
   );
 }
 
+/** A motorcycle + rider seen from behind, anchored at the tyre contact (bottom-centre). */
+function Motorcycle({ x, y, s = 1, color = '#46568c' }: { x: number; y: number; s?: number; color?: string }) {
+  return (
+    <g transform={`translate(${x} ${y}) scale(${s})`}>
+      {/* rear tyre */}
+      <rect x="-5" y="-15" width="10" height="15" rx="4" fill="#0d142b" />
+      {/* seat / tail unit + tail light */}
+      <rect x="-7" y="-23" width="14" height="10" rx="3" fill={color} />
+      <rect x="-3" y="-18" width="6" height="3" rx="1.5" fill="#f04668" />
+      {/* rider torso (back) + helmet */}
+      <path d="M-7 -22 Q-8 -41 0 -44 Q8 -41 7 -22 Z" fill={color} />
+      <circle cx="0" cy="-47" r="7" fill="#2a3a5e" />
+      {/* handlebar mirrors */}
+      <circle cx="-12" cy="-36" r="2.2" fill="#2a3a5e" />
+      <circle cx="12" cy="-36" r="2.2" fill="#2a3a5e" />
+    </g>
+  );
+}
+
 function renderScene(scene: SceneKind) {
   switch (scene) {
     case 'intersection':
@@ -166,9 +185,9 @@ function renderScene(scene: SceneKind) {
           {[124, 150, 176].map((y, i) => (
             <line key={y} x1={120 - i * 5} y1={y + 70} x2={150 - i * 4} y2={y} stroke={DIM} strokeWidth="1" opacity="0.6" />
           ))}
-          {/* distant traffic on the highway */}
-          <Car x={205} y={150} s={0.6} />
-          <Car x={196} y={132} s={0.45} color="#8a6bd6" />
+          {/* riders on the highway ahead */}
+          <Motorcycle x={205} y={156} s={0.55} />
+          <Motorcycle x={196} y={138} s={0.4} color="#8a6bd6" />
         </g>
       );
 
@@ -221,8 +240,8 @@ function renderScene(scene: SceneKind) {
           </g>
           <circle cx="152" cy="121" r="2.5" fill={YELLOW} />
           <circle cx="250" cy="121" r="2.5" fill={YELLOW} />
-          {/* a distant vehicle ahead */}
-          <Car x={200} y={150} s={0.5} />
+          {/* the rider's motorcycle in the lane ahead */}
+          <Motorcycle x={200} y={178} s={0.95} />
         </g>
       );
   }
