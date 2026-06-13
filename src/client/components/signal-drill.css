@@ -1,0 +1,182 @@
+/* =========================================================================
+   Signal-cancellation drill — component-scoped styles.
+   Big mobile tap targets layered on top of the index.css design system.
+   ========================================================================= */
+
+.drill {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* The spoken prompt / situation card. */
+.drill-prompt {
+  text-align: center;
+  padding: 22px 16px;
+}
+.drill-prompt .drill-round {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  font-weight: 700;
+}
+.drill-prompt .drill-instruction {
+  font-size: 1.35rem;
+  font-weight: 800;
+  line-height: 1.25;
+  margin: 8px 0 4px;
+  color: var(--text);
+}
+.drill-prompt .drill-side {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+/* Ordered sequence checklist. */
+.drill-steps {
+  display: grid;
+  gap: 8px;
+}
+.drill-step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--bg-elev);
+  transition:
+    border-color 0.12s ease,
+    background 0.12s ease;
+}
+.drill-step.is-active {
+  border-color: var(--primary);
+  background: var(--bg-elev-2);
+}
+.drill-step.is-done {
+  border-color: #1f5e44;
+  background: #11321f;
+}
+.drill-step .drill-step-num {
+  flex: 0 0 26px;
+  height: 26px;
+  width: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 0.85rem;
+  font-weight: 800;
+  background: var(--bg-elev-2);
+  border: 1px solid var(--border-strong);
+  color: var(--text-dim);
+}
+.drill-step.is-done .drill-step-num {
+  background: var(--ok);
+  border-color: var(--ok);
+  color: #08311c;
+}
+.drill-step.is-active .drill-step-num {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+.drill-step .drill-step-label {
+  font-weight: 650;
+  color: var(--text);
+}
+.drill-step .drill-step-meta {
+  margin-left: auto;
+  font-size: 0.82rem;
+  color: var(--text-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+/* The four big action buttons. */
+.drill-pad {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+.drill-tap {
+  min-height: 84px;
+  font-size: 1.1rem;
+  font-weight: 750;
+  flex-direction: column;
+  gap: 4px;
+  line-height: 1.15;
+  white-space: normal;
+  text-align: center;
+}
+.drill-tap .drill-tap-sub {
+  font-size: 0.74rem;
+  font-weight: 600;
+  opacity: 0.85;
+}
+.drill-tap.is-next {
+  box-shadow: 0 0 0 2px var(--primary) inset;
+}
+.drill-tap:disabled {
+  opacity: 0.4;
+}
+
+/* Verdict banner. */
+.drill-verdict {
+  text-align: center;
+  font-size: 1.15rem;
+  font-weight: 800;
+  padding: 16px;
+}
+.drill-verdict.is-pass {
+  color: #b8f0d2;
+  border-color: #1f5e44;
+  background: #11321f;
+}
+.drill-verdict.is-fail {
+  color: #ffc4d1;
+  border-color: #6a2233;
+  background: #2e1018;
+}
+.drill-verdict .drill-verdict-detail {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: inherit;
+  opacity: 0.92;
+}
+
+/* Stat tiles. */
+.drill-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+.drill-stat {
+  text-align: center;
+  padding: 12px 8px;
+}
+.drill-stat .drill-stat-value {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+.drill-stat .drill-stat-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+@media (max-width: 460px) {
+  .drill-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

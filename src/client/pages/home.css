@@ -1,0 +1,83 @@
+/* Home — hero, feature cards, scenario cards, skeletons. */
+.home-hero {
+  padding: 6px 2px 2px;
+}
+.home-feature-grid {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.home-feature {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+  align-items: flex-start;
+  cursor: pointer;
+  border-width: 1px;
+}
+.home-feature h3 {
+  margin: 2px 0;
+}
+.home-feature p {
+  margin: 0;
+}
+.home-feature-tag {
+  color: var(--accent);
+}
+.home-feature-cta {
+  margin-top: 8px;
+  font-weight: 700;
+  color: var(--primary);
+}
+.home-feature-drill {
+  border-color: var(--border-strong);
+  background: linear-gradient(180deg, rgba(34, 211, 166, 0.08), var(--surface));
+}
+.home-feature-analytics {
+  background: linear-gradient(180deg, rgba(79, 124, 255, 0.08), var(--surface));
+}
+
+.scenario-card {
+  height: 100%;
+  justify-content: space-between;
+}
+.scenario-card-desc {
+  margin: 0;
+  font-size: 0.9rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.scenario-card-meta {
+  gap: 6px;
+}
+
+.home-error {
+  border-color: #6a2233;
+  background: #2e1018;
+}
+
+/* loading skeletons */
+.scenario-skeleton {
+  gap: 12px;
+}
+.skeleton-line {
+  height: 12px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--bg-elev) 25%, var(--bg-elev-2) 37%, var(--bg-elev) 63%);
+  background-size: 400% 100%;
+  animation: skeleton-shimmer 1.4s ease infinite;
+}
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-line {
+    animation: none;
+  }
+}

@@ -1,0 +1,100 @@
+/* ActionPanel — performed-action tray + grouped, large-tap-target palette. */
+.ap-tray {
+  position: sticky;
+  top: 56px;
+  z-index: 10;
+  padding: 12px;
+}
+.ap-empty {
+  margin: 10px 0 0;
+  font-size: 0.9rem;
+}
+.ap-chips {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.ap-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--bg-elev);
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  padding: 5px 12px 5px 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.ap-chip-idx {
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+.ap-chip-label {
+  color: var(--text);
+}
+.ap-chip-time {
+  color: var(--text-faint);
+  font-size: 0.74rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.ap-group-title {
+  margin-bottom: 6px;
+}
+.ap-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(108px, 1fr));
+  gap: 8px;
+}
+.ap-btn {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  min-height: 56px;
+  padding: 10px 12px;
+  text-align: left;
+  line-height: 1.15;
+}
+.ap-btn-label {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+.ap-btn-hint {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.btn-sm-action {
+  padding: 7px 12px;
+  font-size: 0.82rem;
+}
+
+/* Group accent colors via left border so palette is scannable one-handed. */
+.ap-btn-observation {
+  border-left: 3px solid var(--primary);
+}
+.ap-btn-signal {
+  border-left: 3px solid var(--accent);
+}
+.ap-btn-speed {
+  border-left: 3px solid var(--warn);
+}
+.ap-btn-position {
+  border-left: 3px solid #a78bfa;
+}
+.ap-btn-maneuver {
+  border-left: 3px solid var(--danger);
+}

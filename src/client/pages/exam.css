@@ -1,0 +1,79 @@
+/* Exam runner — layout, situation panel, sticky action bar, boot states. */
+.exam {
+  padding-bottom: 88px; /* room for the sticky action bar */
+}
+.exam-header h2 {
+  font-size: 1.15rem;
+}
+
+.exam-situation {
+  background: var(--bg-elev);
+}
+.exam-hint {
+  margin: 10px 0 0;
+  font-size: 0.9rem;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--warn);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+}
+.exam-hint-tag {
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: var(--warn);
+  margin-right: 4px;
+}
+
+.exam-result {
+  margin-top: 2px;
+}
+
+/* sticky one-handed action bar */
+.exam-actions {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 30;
+  padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px));
+  background: linear-gradient(0deg, var(--bg) 70%, rgba(11, 16, 32, 0));
+}
+.exam-actions .btn {
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+
+/* boot + error states */
+.exam-boot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 40px 16px;
+}
+.exam-boot-error {
+  border-color: #6a2233;
+  background: #2e1018;
+}
+.exam-spinner {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 3px solid var(--border);
+  border-top-color: var(--primary);
+  animation: exam-spin 0.8s linear infinite;
+}
+@keyframes exam-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .exam-spinner {
+    animation-duration: 2s;
+  }
+}

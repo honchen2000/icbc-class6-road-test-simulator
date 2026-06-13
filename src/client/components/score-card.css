@@ -1,0 +1,72 @@
+/* ScoreCard — radial gauge + per-skill demerit bars. */
+.score-card {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 1fr;
+}
+.score-gauge-wrap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.score-gauge {
+  --size: 116px;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+.score-gauge-inner {
+  width: calc(100% - 22px);
+  height: calc(100% - 22px);
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+.score-gauge-num {
+  font-size: 1.7rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--text);
+}
+.score-gauge-cap {
+  font-size: 0.72rem;
+  color: var(--text-faint);
+  font-weight: 600;
+}
+.score-gauge-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.score-skill-head {
+  margin-bottom: 4px;
+}
+.score-skill-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.score-skill-pts {
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  font-variant-numeric: tabular-nums;
+}
+.score-skill + .score-skill {
+  margin-top: 8px;
+}
+
+@media (min-width: 640px) {
+  .score-card {
+    grid-template-columns: minmax(220px, 0.9fr) 1.3fr;
+    align-items: start;
+  }
+}

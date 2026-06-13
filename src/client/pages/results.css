@@ -1,0 +1,121 @@
+/* Results — pass/fail hero, debrief panel, CTA row, boot states. */
+.results-hero {
+  text-align: center;
+  padding: 26px 18px;
+  border-width: 1px;
+}
+.results-hero-badge {
+  display: inline-block;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  font-weight: 900;
+  padding: 4px 14px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+}
+.results-hero-title {
+  margin: 0 0 4px;
+  font-size: 1.5rem;
+}
+.results-hero-sub {
+  margin: 0;
+}
+.results-hero-pass {
+  border-color: #1f5e44;
+  background: linear-gradient(180deg, #11321f, var(--surface));
+}
+.results-hero-pass .results-hero-badge {
+  background: var(--ok);
+  color: #062a16;
+}
+.results-hero-fail {
+  border-color: #6a2233;
+  background: linear-gradient(180deg, #2e1018, var(--surface));
+}
+.results-hero-fail .results-hero-badge {
+  background: var(--danger);
+  color: #fff;
+}
+.results-hero-neutral .results-hero-badge {
+  background: var(--bg-elev-2);
+  color: var(--text);
+}
+.results-fail-reasons {
+  list-style: none;
+  margin: 14px auto 0;
+  padding: 0;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+.results-fail-reasons li {
+  font-size: 0.9rem;
+  color: var(--text);
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+}
+
+.results-debrief-head {
+  margin-bottom: 8px;
+}
+.results-debrief-speech {
+  margin: 0;
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.results-debrief-list {
+  margin: 12px 0 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.results-debrief-list li {
+  color: var(--text-dim);
+  font-size: 0.92rem;
+}
+.btn-sm {
+  padding: 7px 12px;
+  font-size: 0.82rem;
+}
+
+.results-cta {
+  margin-top: 4px;
+}
+.results-cta .btn {
+  flex: 1 1 160px;
+}
+
+.results-error {
+  border-color: #6a2233;
+  background: #2e1018;
+}
+.results-boot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 40px 16px;
+}
+.results-spinner {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 3px solid var(--border);
+  border-top-color: var(--primary);
+  animation: results-spin 0.8s linear infinite;
+}
+@keyframes results-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .results-spinner {
+    animation-duration: 2s;
+  }
+}
