@@ -1,6 +1,6 @@
 /* Exam runner — layout, situation panel, sticky action bar, boot states. */
 .exam {
-  padding-bottom: 88px; /* room for the sticky action bar */
+  padding-bottom: 8px;
 }
 .exam-header h2 {
   font-size: 1.15rem;
@@ -32,17 +32,21 @@
   margin-top: 2px;
 }
 
-/* sticky one-handed action bar */
+/* one-handed action bar — sticks to the viewport bottom while the page scrolls,
+   but stays in normal flow (no floating gap) when the content is short, and
+   bleeds to the container edges so it aligns with the content column on wide
+   screens while remaining full-width on mobile. */
 .exam-actions {
-  position: fixed;
-  left: 0;
-  right: 0;
+  position: sticky;
   bottom: 0;
   z-index: 30;
+  margin: 16px -16px 0;
   padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px));
-  background: linear-gradient(0deg, var(--bg) 70%, rgba(11, 16, 32, 0));
+  background: linear-gradient(0deg, var(--bg) 78%, rgba(11, 16, 32, 0));
 }
 .exam-actions .btn {
+  display: flex;
+  width: 100%;
   max-width: var(--maxw);
   margin: 0 auto;
 }
