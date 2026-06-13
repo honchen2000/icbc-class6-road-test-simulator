@@ -232,7 +232,7 @@ export default function Exam() {
 
       <Progress index={stepIndex} total={steps.length} />
 
-      <StreetView spec={step.streetView} />
+      <StreetView spec={step.streetView} performed={performed} />
 
       <ExaminerBar instruction={step.instruction} speakKey={step.id} />
 

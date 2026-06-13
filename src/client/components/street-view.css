@@ -44,3 +44,111 @@
   font-weight: 600;
   color: var(--text);
 }
+
+/* ---- scene animation (decorative; auto-disabled by prefers-reduced-motion) ---- */
+
+/* flowing lane lines convey forward motion; speed reacts to the rider */
+.sv-flow {
+  animation: sv-flow 1.15s linear infinite;
+}
+@keyframes sv-flow {
+  to {
+    stroke-dashoffset: -30;
+  }
+}
+.sv-speed-accel .sv-flow {
+  animation-duration: 0.55s;
+}
+.sv-speed-brake .sv-flow {
+  animation-duration: 2.4s;
+}
+.sv-speed-stop .sv-flow {
+  animation-play-state: paused;
+}
+
+/* the rider's bike idles with a gentle bob */
+.sv-moto {
+  animation: sv-bob 1.7s ease-in-out infinite;
+}
+@keyframes sv-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-1.5px);
+  }
+}
+
+/* turn indicators: dim when off, blink when on (stays on if never cancelled) */
+.sv-ind {
+  opacity: 0.16;
+}
+.sv-ind-on {
+  opacity: 1;
+  animation: sv-blink 1.05s steps(1, end) infinite;
+}
+@keyframes sv-blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  50.01%,
+  100% {
+    opacity: 0.16;
+  }
+}
+.sv-brake-on {
+  filter: drop-shadow(0 0 3px #ff3b3b);
+}
+
+/* pulsing street lamps + lit traffic-light lamp */
+.sv-lamp,
+.sv-tl {
+  animation: sv-lamp 3.2s ease-in-out infinite;
+}
+@keyframes sv-lamp {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* slow skyline parallax */
+.sv-bldg {
+  animation: sv-drift 22s ease-in-out infinite;
+}
+@keyframes sv-drift {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-6px);
+  }
+}
+
+/* a child's ball rolls toward the road occasionally (residential) */
+.sv-ball {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: sv-ball 8s ease-in infinite;
+}
+@keyframes sv-ball {
+  0%,
+  60% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  64% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-104px, 40px) rotate(400deg);
+    opacity: 1;
+  }
+}
